@@ -6,16 +6,15 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import { useNavigation } from '@react-navigation/native';
 
 
-const SearchResult = props => {
-  const search = props.search;
+const SearchResult = ({item}) => {
   const navigation = useNavigation()
   return (
-    <TouchableOpacity onPress={()=> navigation.navigate('Guestes')} style={styles.row}>
+    <View style={styles.row}>
         <View style={styles.iconContainer}>
         <Entypo name='location-pin' size={30}/>
         </View>
-      <Text style={styles.locationText}>{search.description}</Text>
-    </TouchableOpacity>
+      <Text style={styles.locationText}>{item.description}</Text>
+    </View>
   );
 };
 
