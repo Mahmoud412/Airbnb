@@ -19,7 +19,7 @@ export default [
   {
     id: '1',
     image:
-      'https://www.aveliving.com/AVE/media/Property_Images/Florham%20Park/hero/flor-apt-living-(2)-hero.jpg?ext=.jpg',
+      'https://img.zumpercdn.com/279363245/1280x960',
     type: 'Entire Flat',
     title: 'NEW lux. apartment in the center of Santa Cruz',
     description:
