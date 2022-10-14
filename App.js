@@ -15,9 +15,10 @@ import {
 } from 'react-native';
 import HomeScreen from './src/screens/Home';
 import Post from './src/componets/Post';
+import feed from './assets/data/feed';
 
 
-
+const post2 = feed[1]
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -27,7 +28,8 @@ const App = () => {
     <SafeAreaView style={{flex:1}}>
       
     
-      <Post/>
+      <Post post ={post2}/>
+      
     </SafeAreaView>
   );
 };

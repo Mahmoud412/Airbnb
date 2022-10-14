@@ -2,28 +2,24 @@ import {View, Text, Image} from 'react-native';
 import React from 'react';
 import styles from './styles';
 
-const Post = () => {
+const Post = props => {
+  const post = props.post;
   return (
     <View style={styles.container}>
-      <Image
-        source={{
-          uri: 'https://d6644ef6a12fcfb82f3f-5d6761b1e7eae8e264ad220502fbb6f0.ssl.cf5.rackcdn.com/a1c0b876-61e6-4ec3-8c05-ca96ca60e2d1/images/pickaflatphoto2.jpg',
-        }}
-        style={styles.image}
-      />
+      <Image source={{uri:post.image}} style={styles.image} />
 
-      <Text style={styles.bedrooms}>1 bed bedRoom</Text>
+      <Text style={styles.bedrooms}>
+        {' '}
+        {post.bed} bed {post.bedroom} bedroom
+      </Text>
       <Text style={styles.description} numberOfLines={2}>
-        s simply dummy text of the printing and typesetting industry. Lorem
-        Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book.
+        {post.type} {post.title}
       </Text>
       <Text style={styles.prices}>
-        <Text style={styles.oldPrice}>$36 </Text>
-        <Text style={styles.newPrice}> $30 </Text>/ night
+        <Text style={styles.oldPrice}>{post.oldPrice} </Text>
+        <Text style={styles.newPrice}> {post.newPrice} </Text>/ night
       </Text>
-      <Text style={styles.totalPrice}>$230 total</Text>
+      <Text style={styles.totalPrice}>{post.totalPrice} total</Text>
     </View>
   );
 };
