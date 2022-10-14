@@ -13,6 +13,7 @@ import {
   SafeAreaView,
   useColorScheme,
 } from 'react-native';
+import HomeScreen from './src/screens/Home';
 
 
 
@@ -22,9 +23,9 @@ const App = () => {
 
   
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex:1}}>
       
-      
+      <HomeScreen/>
     </SafeAreaView>
   );
 };
