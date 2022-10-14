@@ -19,6 +19,7 @@ import feed from './assets/data/feed';
 import SearchResltsScreen from './src/screens/SearchResults';
 import DestinationSearchScreen from './src/screens/DestinationSearch';
 import SearchResult from './src/componets/SearchResults';
+import GuestesScreen from './src/screens/Guestes';
 
 
 const post2 = feed[1]
@@ -31,7 +32,7 @@ const App = () => {
     <SafeAreaView style={{flex:1}}>
       
     
-    <DestinationSearchScreen/>
+   <GuestesScreen/>
       
     </SafeAreaView>
   );
