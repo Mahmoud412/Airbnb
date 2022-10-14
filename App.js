@@ -14,6 +14,7 @@ import {
   useColorScheme,
 } from 'react-native';
 import HomeScreen from './src/screens/Home';
+import Post from './src/componets/Post';
 
 
 
@@ -25,7 +26,8 @@ const App = () => {
   return (
     <SafeAreaView style={{flex:1}}>
       
-      <HomeScreen/>
+    
+      <Post/>
     </SafeAreaView>
   );
 };
