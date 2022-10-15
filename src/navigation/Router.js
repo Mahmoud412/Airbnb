@@ -22,7 +22,7 @@ const Router = () => {
           component={DestinationSearchScreen}
           options={{title: 'Search your destination'}}
         />
-        <Stack.Screen name="Guestes" component={GuestesScreen} />
+        <Stack.Screen name="Guests" component={GuestesScreen} />
         <Stack.Screen name={'Search Results'} component={SearchResltsScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
