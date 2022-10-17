@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-const google_API_Key = 'AIzaSyD-tZDCkTsiF_dxRkByAJikjzh8TRwjC3Y'
+const google_API_Key = 'AIzaSyA7u905gLywHo1pyXKrqreC8GwvfckITEQ'
 const DestinationSearchScreen = () => {
   const navigation = useNavigation()
   return (
