@@ -1,17 +1,11 @@
-import {View, Text, Image, Pressable} from 'react-native';
+import {View, Text, Image , ScrollView} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 const Post = props => {
   const post = props.post;
-  const navigation = useNavigation()
-
-  const goToPostDetail = ()=>{
-    navigation.navigate('PostDetail',{postId: post.id})
-  }
   return (
-    <Pressable onPress={goToPostDetail} style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator='false' style={styles.container}>
       <Image source={{uri:post.image}} style={styles.image} />
 
       <Text style={styles.bedrooms}>
@@ -25,7 +19,9 @@ const Post = props => {
         <Text style={styles.newPrice}> {post.newPrice} </Text>/ night
       </Text>
       <Text style={styles.totalPrice}>{post.totalPrice} total</Text>
-    </Pressable>
+    
+      <Text style={styles.longDescription}>{post.description}</Text>
+    </ScrollView>
   );
 };
 

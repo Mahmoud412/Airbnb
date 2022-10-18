@@ -1,4 +1,4 @@
-import {Text, View, ImageBackground, Pressable} from 'react-native';
+import {Text, View, ImageBackground, Pressable,SafeAreaView} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import Fontisto from 'react-native-vector-icons/Fontisto'

@@ -9,7 +9,7 @@
 import 'react-native-gesture-handler'
 import React from 'react';
 import {
-  SafeAreaView,
+  SafeAreaView, View,
 } from 'react-native';
 
 import GuestesScreen from './src/screens/Guestes';
