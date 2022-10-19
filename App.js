@@ -12,7 +12,9 @@ import {
   SafeAreaView, View,
 } from 'react-native';
 
-import GuestesScreen from './src/screens/Guestes';
+import {withAuthenticator} from 'aws-amplify-react-native'
+
+
 import Router from './src/navigation/Router';
 
 
@@ -29,4 +31,4 @@ const App = () => {
 };
 
 
-export default App;
+export default withAuthenticator(App);
