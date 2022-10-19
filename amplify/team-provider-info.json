@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "airbnbe1f76b18": {}
+      },
+      "api": {
+        "airbnb": {}
       }
     }
   }

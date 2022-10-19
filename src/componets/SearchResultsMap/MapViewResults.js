@@ -8,6 +8,8 @@ import PostCardItem from '../PostCardItem';
 
 
 
+
+
 const MapViewResults = () => {
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
   const width = useWindowDimensions().width
@@ -40,7 +42,7 @@ const MapViewResults = () => {
   return (
     <View style={styles.container}>
       <MapView
-      ref={mapRef}
+        ref={mapRef}
         style={styles.mapContainer}
         provider={PROVIDER_GOOGLE}
         region={{
@@ -48,7 +50,8 @@ const MapViewResults = () => {
           longitude: -16.5124847,
           latitudeDelta: 0.8,
           longitudeDelta: 0.8,
-        }}>
+        }}
+        >
         {places.map(place => (
           <CustomMarker
             isSelected={place.id === selectedPlaceId}
