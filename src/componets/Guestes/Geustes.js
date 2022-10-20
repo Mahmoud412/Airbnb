@@ -2,8 +2,9 @@ import {View, Text, Pressable} from 'react-native';
 import React, {useState} from 'react';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
+import { roundToNearestPixel } from 'react-native/Libraries/Utilities/PixelRatio';
 
-const Geustes = () => {
+const Geustes = ({route}) => {
   const navigation = useNavigation();
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
@@ -79,6 +80,11 @@ const Geustes = () => {
               screen: 'Explore',
               params: {
                 screen: 'SearchResults',
+                params:{
+                 guests:  adults + children ,
+                 viewport:route.params.viewport,
+                 
+                }
               },
             })
           }

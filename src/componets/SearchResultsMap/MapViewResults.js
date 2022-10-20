@@ -5,13 +5,17 @@ import styles from './styles';
 import places from '../../../assets/data/feed';
 import CustomMarker from './CustomMarker';
 import PostCardItem from '../PostCardItem';
+import {API, graphqlOperation} from 'aws-amplify';
+import {listPosts} from '../../graphql/queries';
 
 
 
 
 
-const MapViewResults = () => {
+const MapViewResults = ({guests,viewport}) => {
+  console.log(viewport)
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
+  const [posts, SetPosts] = useState([]);
   const width = useWindowDimensions().width
   const flatlist =  useRef()
   const mapRef = useRef()
@@ -26,18 +30,46 @@ const MapViewResults = () => {
     if(!selectedPlaceId || !flatlist){
       return
     }
-    const index = places.findIndex(place => place.id === selectedPlaceId)
+    const index = posts.findIndex(place => place.id === selectedPlaceId)
     flatlist.current.scrollToIndex({index})
 
-    const selectedPlaceZoomIn = places[index]
+    const selectedPlaceZoomIn = posts[index]
     const region = {
-      latitude:selectedPlaceZoomIn.coordinate.latitude,
-      longitude:selectedPlaceZoomIn.coordinate.longitude,
+      latitude:selectedPlaceZoomIn.latitude,
+      longitude:selectedPlaceZoomIn.longitude,
       latitudeDelta:0.8,
       longitudeDelta:0.8,
     }
     mapRef.current.animateToRegion(region)
   }, [selectedPlaceId])
+
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const postsResults = await API.graphql(graphqlOperation(listPosts,{
+          filter:{
+            and:{
+              maxGuestes:{
+                ge:guests
+              },
+              latitude: {between: [viewport.southwest.lat, 
+                viewport.northeast.lat],
+              },
+              longitude: {between: [viewport.southwest.lng, viewport.northeast.lng],
+              }
+            }
+          }
+        }))
+       
+        SetPosts(postsResults.data.listPosts.items);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -52,11 +84,11 @@ const MapViewResults = () => {
           longitudeDelta: 0.8,
         }}
         >
-        {places.map(place => (
+        {posts.map(place => (
           <CustomMarker
             isSelected={place.id === selectedPlaceId}
             onPress={() => setSelectedPlaceId(place.id)}
-            coordinate={place.coordinate}
+            coordinate={{latitude: place.latitude , longitude:place.longitude}}
             price={place.newPrice}
           />
         ))}
@@ -64,7 +96,7 @@ const MapViewResults = () => {
       <View style={{position: 'absolute', bottom: 10}}>
         <FlatList
           ref={flatlist}
-          data={places}
+          data={posts}
           renderItem={({item}) => <PostCardItem post={item} />}
           keyExtractor={item=>item.id}
           horizontal

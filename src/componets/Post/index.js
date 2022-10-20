@@ -1,19 +1,19 @@
 import {View, Text, Image, Pressable} from 'react-native';
 import React from 'react';
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const Post = props => {
-  const days = 7
+  const days = 7;
   const post = props.post;
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
-  const goToPostDetail = ()=>{
-    navigation.navigate('PostDetail',{postId: post.id})
-  }
+  const goToPostDetail = () => {
+    navigation.navigate('PostDetailsScreen', {postId: post.id});
+  };
   return (
     <Pressable onPress={goToPostDetail} style={styles.container}>
-      <Image source={{uri:post.image}} style={styles.image} />
+      <Image source={{uri: post.image}} style={styles.image} />
 
       <Text style={styles.bedrooms}>
         {post.bed} bed {post.bedroom} bedroom

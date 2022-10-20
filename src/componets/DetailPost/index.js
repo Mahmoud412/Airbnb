@@ -1,12 +1,13 @@
-import {View, Text, Image , ScrollView} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 import React from 'react';
 import styles from './styles';
 
 const Post = props => {
   const post = props.post;
+  console.log(post);
   return (
-    <ScrollView showsVerticalScrollIndicator='false' style={styles.container}>
-      <Image source={{uri:post.image}} style={styles.image} />
+    <ScrollView showsVerticalScrollIndicator="false" style={styles.container}>
+      <Image source={{uri: post.image}} style={styles.image} />
 
       <Text style={styles.bedrooms}>
         {post.bed} bed {post.bedroom} bedroom
@@ -19,7 +20,7 @@ const Post = props => {
         <Text style={styles.newPrice}> {post.newPrice} </Text>/ night
       </Text>
       <Text style={styles.totalPrice}>{post.totalPrice} total</Text>
-    
+
       <Text style={styles.longDescription}>{post.description}</Text>
     </ScrollView>
   );
