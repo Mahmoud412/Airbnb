@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import DeatilPost from '../../componets/DetailPost';
 import {useRoute} from '@react-navigation/native';
 import {API, graphqlOperation} from 'aws-amplify';
-import {getPost, listPosts} from '../../graphql/queries';
+import {getPost} from '../../graphql/queries';
 
 
 
