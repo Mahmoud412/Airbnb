@@ -13,6 +13,7 @@
 
 
 - Aws-amplify
+- graphql API
 - Amazon-cognito-identity-js
 - Aws-amplify-react-native
 - React-native-picker
