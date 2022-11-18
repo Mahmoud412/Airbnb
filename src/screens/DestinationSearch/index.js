@@ -4,7 +4,7 @@ import styles from './styles';
 import SearchResult from '../../componets/SearchResults';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import { useNavigation } from '@react-navigation/native';
-import { google_API_Key } from '../../config';
+import { google_API_Key } from '../../../config';
 
 
 const DestinationSearchScreen = () => {
